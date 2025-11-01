@@ -1,6 +1,8 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import java.util.Arrays;
 
 public class InputView {
     private static final String PURCHASE_AMOUNT_INPUT_MESSAGE = "구입금액을 입력해 주세요.";
@@ -12,9 +14,13 @@ public class InputView {
         return Integer.parseInt(Console.readLine());
     }
 
-    public static Integer readWinningNumber() {
+    public static List<Integer> readWinningNumber() {
         System.out.println(WINNING_NUMBER_INPUT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        String[] numbers = input.split(",");
+        return Arrays.stream(numbers)
+            .map(Integer::parseInt)
+            .toList();
     }
 
     public static Integer readBonusNumber() {
