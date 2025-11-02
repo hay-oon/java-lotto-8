@@ -16,14 +16,23 @@ public class LottoController {
         OutputView.printPurchaseNumber(purchaseNumber);
         OutputView.printLottoTicket(lottoTicket);
 
-        List<Integer> winningNumbers = InputView.readWinningNumber();
-        int bonusNumber = InputView.readBonusNumber();
-
-        WinningNumber totalWinningNumber = new WinningNumber(winningNumbers, bonusNumber);
+        WinningNumber totalWinningNumber = readWinningNumberWithBonus();
 
         LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, totalWinningNumber);
-
         double earningRate = EarningRateCalculator.calculateEarningRate(lottoResult, purchaseNumber);
+        
         OutputView.printResult(lottoResult, earningRate);
+    }
+
+    private WinningNumber readWinningNumberWithBonus() {
+        while (true) {
+            try {
+                List<Integer> winningNumbers = InputView.readWinningNumber();
+                int bonusNumber = InputView.readBonusNumber();
+                return new WinningNumber(winningNumbers, bonusNumber);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
