@@ -9,7 +9,9 @@ public class InputView {
     private static final String WINNING_NUMBER_INPUT_MESSAGE = "당첨 번호를 입력해 주세요.";
     private static final String BONUS_NUMBER_INPUT_MESSAGE = "보너스 번호를 입력해 주세요.";
     private static final String PURCHASE_AMOUNT_NOT_ZERO_ERROR_MESSAGE = "[ERROR] 구입 금액은 0 이하일 수 없습니다.";
-    private static final String PURCHASE_AMOUNT_NOT_1000_UNIT_ERROR_MESSAGE = "[ERROR] 구입 금액은 1000원 단위여야 합니다.";
+    private static final String PURCHASE_AMOUNT_NOT_UNIT_ERROR_MESSAGE = "[ERROR] 구입 금액은 1000원 단위여야 합니다.";
+    private static final String NUMBER_FORMAT_ERROR_MESSAGE = "[ERROR] 숫자를 입력해주세요.";
+    private static final int PURCHASE_AMOUNT_UNIT = 1000;
 
     public static Integer readPurchaseAmount() {
         while (true) {
@@ -19,7 +21,7 @@ public class InputView {
                 validatePurchaseAmount(purchaseAmount);
                 return convertToPurchaseNumber(purchaseAmount);
             } catch (NumberFormatException e) {
-                System.out.println("[ERROR] 숫자를 입력해주세요.");
+                System.out.println(NUMBER_FORMAT_ERROR_MESSAGE);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -37,7 +39,7 @@ public class InputView {
                         .map(Integer::parseInt)
                         .toList();
             } catch (NumberFormatException e) {
-                System.out.println("[ERROR] 숫자를 입력해주세요.");
+                System.out.println(NUMBER_FORMAT_ERROR_MESSAGE);
             }
         }
     }
@@ -49,21 +51,21 @@ public class InputView {
                 System.out.println(BONUS_NUMBER_INPUT_MESSAGE);
                 return Integer.parseInt(Console.readLine());
             } catch (NumberFormatException e) {
-                System.out.println("[ERROR] 숫자를 입력해주세요.");
+                System.out.println(NUMBER_FORMAT_ERROR_MESSAGE);
             }
         }
     }
 
     private static Integer convertToPurchaseNumber(Integer purchaseAmount) {
-        return purchaseAmount / 1000;
+        return purchaseAmount / PURCHASE_AMOUNT_UNIT;
     }
 
     private static void validatePurchaseAmount(Integer purchaseAmount) {
         if (purchaseAmount <= 0) {
             throw new IllegalArgumentException(PURCHASE_AMOUNT_NOT_ZERO_ERROR_MESSAGE);
         }
-        if (purchaseAmount % 1000 != 0) {
-            throw new IllegalArgumentException(PURCHASE_AMOUNT_NOT_1000_UNIT_ERROR_MESSAGE);
+        if (purchaseAmount % PURCHASE_AMOUNT_UNIT != 0) {
+            throw new IllegalArgumentException(PURCHASE_AMOUNT_NOT_UNIT_ERROR_MESSAGE);
         }
     }
 }
