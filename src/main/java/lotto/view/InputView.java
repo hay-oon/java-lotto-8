@@ -11,7 +11,8 @@ public class InputView {
 
     public static Integer readPurchaseAmount() {
         System.out.println(PURCHASE_AMOUNT_INPUT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        Integer purchaseAmount = Integer.parseInt(Console.readLine());
+        return convertToPurchaseNumber(purchaseAmount);
     }
 
     public static List<Integer> readWinningNumber() {
@@ -19,12 +20,16 @@ public class InputView {
         String input = Console.readLine();
         String[] numbers = input.split(",");
         return Arrays.stream(numbers)
-            .map(Integer::parseInt)
-            .toList();
+                .map(Integer::parseInt)
+                .toList();
     }
 
     public static Integer readBonusNumber() {
         System.out.println(BONUS_NUMBER_INPUT_MESSAGE);
         return Integer.parseInt(Console.readLine());
+    }
+
+    private static Integer convertToPurchaseNumber(Integer purchaseAmount) {
+        return purchaseAmount / 1000;
     }
 }
