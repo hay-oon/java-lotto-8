@@ -19,4 +19,12 @@ public class LottoTicket {
         }
         return new LottoTicket(lottoList, purchaseNumber);
     }
+
+    public List<Lotto> getLottoList() {
+        return lottoList;
+    }
+
+    public Integer getPurchaseNumber() {
+        return purchaseNumber;
+    }
 }
