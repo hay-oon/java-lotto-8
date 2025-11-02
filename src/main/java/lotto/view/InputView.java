@@ -13,24 +13,37 @@ public class InputView {
 
     public static Integer readPurchaseAmount() {
         System.out.println(PURCHASE_AMOUNT_INPUT_MESSAGE);
-        Integer purchaseAmount = Integer.parseInt(Console.readLine());
-        validatePurchaseAmount(purchaseAmount);
-        return convertToPurchaseNumber(purchaseAmount);
+        try {
+            Integer purchaseAmount = Integer.parseInt(Console.readLine());
+            validatePurchaseAmount(purchaseAmount);
+            return convertToPurchaseNumber(purchaseAmount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
+        }
     }
 
     public static List<Integer> readWinningNumber() {
         System.out.println(WINNING_NUMBER_INPUT_MESSAGE);
-        String input = Console.readLine();
-        String[] numbers = input.split(",");
-        return Arrays.stream(numbers)
-                .map(Integer::parseInt)
-                .toList();
+        try {
+            String input = Console.readLine();
+            String[] numbers = input.split(",");
+            return Arrays.stream(numbers)
+                    .map(String::trim)
+                    .map(Integer::parseInt)
+                    .toList();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
+        }
     }
 
     public static Integer readBonusNumber() {
         System.out.println();
         System.out.println(BONUS_NUMBER_INPUT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자를 입력해주세요.");
+        }
     }
 
     private static Integer convertToPurchaseNumber(Integer purchaseAmount) {
