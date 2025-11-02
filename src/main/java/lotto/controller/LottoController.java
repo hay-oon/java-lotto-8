@@ -6,7 +6,7 @@ import lotto.view.OutputView;
 import lotto.model.LottoTicket;
 import lotto.model.WinningNumber;
 import lotto.model.LottoResult;
-import lotto.utill.EarningRateCalculator;
+import lotto.util.EarningRateCalculator;
 
 public class LottoController {
     public void run() {
