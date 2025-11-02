@@ -2,9 +2,8 @@ package lotto.view;
 
 import lotto.model.Lotto;
 import lotto.model.LottoTicket;
-//import lotto.model.WinningNumber;
-//import lotto.model.LottoResult;
-//import lotto.model.EarningRate;
+import lotto.model.LottoResult;
+import lotto.model.Rank;
 
     public class OutputView {
         private static final String PURCHASE_NUMBER_OUTPUT_MESSAGE = "%d개를 구매했습니다.";
@@ -28,15 +27,14 @@ import lotto.model.LottoTicket;
             }
         }
 
-//        public static void printResult(LottoResult lottoResult, Double earningRate) {
-//            System.out.println(WINNING_RESULT_OUTPUT_MESSAGE);
-//            System.out.println(WINNING_RESULT_SEPARATOR);
-//            //TODO: 당첨 결과 출력 수정
-//            System.out.println(String.format(WINNING_RESULT_3_MATCH_MESSAGE, lottoResult.get()));
-//            System.out.println(String.format(WINNING_RESULT_4_MATCH_MESSAGE, lottoResult.get()));
-//            System.out.println(String.format(WINNING_RESULT_5_MATCH_MESSAGE, lottoResult.get()));
-//            System.out.println(String.format(WINNING_RESULT_5_MATCH_BONUS_MESSAGE, lottoResult.get()));
-//            System.out.println(String.format(WINNING_RESULT_6_MATCH_MESSAGE, lottoResult.get()));
-//            System.out.println(String.format(EARNING_RATE_OUTPUT_MESSAGE, earningRate));
-//        }
+       public static void printResult(LottoResult lottoResult, double earningRate) {
+           System.out.println(WINNING_RESULT_OUTPUT_MESSAGE);
+           System.out.println(WINNING_RESULT_SEPARATOR);
+           System.out.println(String.format(WINNING_RESULT_3_MATCH_MESSAGE, lottoResult.getRankCount(Rank.FIFTH)));
+           System.out.println(String.format(WINNING_RESULT_4_MATCH_MESSAGE, lottoResult.getRankCount(Rank.FOURTH)));
+           System.out.println(String.format(WINNING_RESULT_5_MATCH_MESSAGE, lottoResult.getRankCount(Rank.THIRD)));
+           System.out.println(String.format(WINNING_RESULT_5_MATCH_BONUS_MESSAGE, lottoResult.getRankCount(Rank.SECOND)));
+           System.out.println(String.format(WINNING_RESULT_6_MATCH_MESSAGE, lottoResult.getRankCount(Rank.FIRST)));
+           System.out.println(String.format(EARNING_RATE_OUTPUT_MESSAGE, earningRate));
+       }
     }
