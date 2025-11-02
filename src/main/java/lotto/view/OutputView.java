@@ -18,6 +18,7 @@ public class OutputView {
 
 
     public static void printPurchaseNumber(Integer purchaseNumber) {
+        System.out.println();
         System.out.println(String.format(PURCHASE_NUMBER_OUTPUT_MESSAGE, purchaseNumber));
     }
 
@@ -25,9 +26,11 @@ public class OutputView {
         for (Lotto lotto : lottoTicket.getLottoList()) {
             System.out.println(lotto);
         }
+        System.out.println();
     }
 
     public static void printResult(LottoResult lottoResult, double earningRate) {
+        System.out.println();
         System.out.println(WINNING_RESULT_OUTPUT_MESSAGE);
         System.out.println(WINNING_RESULT_SEPARATOR);
         System.out.println(String.format(WINNING_RESULT_3_MATCH_MESSAGE, lottoResult.getRankCount(Rank.FIFTH)));
