@@ -13,7 +13,7 @@ public enum Rank {
     private final boolean hasBonus;
 
     Rank(int matchCount, int prize, boolean hasBonus) {
-        this.matchCount = matchCount; 
+        this.matchCount = matchCount;
         this.prize = prize;
         this.hasBonus = hasBonus;
     }

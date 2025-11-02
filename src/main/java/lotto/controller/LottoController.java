@@ -23,7 +23,7 @@ public class LottoController {
 
         LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, totalWinningNumber);
 
-       double earningRate = EarningRateCalculator.calculateEarningRate(lottoResult, purchaseNumber);
-       OutputView.printResult(lottoResult, earningRate);
+        double earningRate = EarningRateCalculator.calculateEarningRate(lottoResult, purchaseNumber);
+        OutputView.printResult(lottoResult, earningRate);
     }
 }

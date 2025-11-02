@@ -12,15 +12,15 @@ public class LottoResult {
 
     public static LottoResult matchNumber(LottoTicket lottoTicket, WinningNumber winningNumber) {
         Map<Rank, Integer> rankCountMap = initializeRankCountMap();
-        
+
         for (Lotto lotto : lottoTicket.getLottoList()) {
-            int matchCount = calculateMatchCount(lotto, winningNumber); 
+            int matchCount = calculateMatchCount(lotto, winningNumber);
             boolean hasBonus = hasBonusNumber(lotto, winningNumber);
-            
+
             Rank rank = Rank.from(matchCount, hasBonus);
             rankCountMap.put(rank, rankCountMap.get(rank) + 1);
         }
-        
+
         return new LottoResult(rankCountMap);
     }
 

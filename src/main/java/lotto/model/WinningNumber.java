@@ -6,7 +6,8 @@ public class WinningNumber {
     private static final int WINNING_NUMBERS_SIZE = 6;
     private static final int WINNING_NUMBER_MIN = 1;
     private static final int WINNING_NUMBER_MAX = 45;
-    private static final String WINNING_NUMBERS_SIZE_ERROR_MESSAGE = "[ERROR] 당첨 번호는 " + WINNING_NUMBERS_SIZE + "개여야 합니다.";
+    private static final String WINNING_NUMBERS_SIZE_ERROR_MESSAGE =
+            "[ERROR] 당첨 번호는 " + WINNING_NUMBERS_SIZE + "개여야 합니다.";
     private static final String WINNING_NUMBER_RANGE_ERROR_MESSAGE =
             "[ERROR] 당첨 번호는 " + WINNING_NUMBER_MIN + "~" + WINNING_NUMBER_MAX + " 사이의 숫자여야 합니다.";
     private static final String WINNING_NUMBERS_DUPLICATE_ERROR_MESSAGE =

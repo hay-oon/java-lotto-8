@@ -8,8 +8,10 @@ public class Lotto {
     private static final int LOTTO_NUMBER_MIN = 1;
     private static final int LOTTO_NUMBER_MAX = 45;
     private static final String NUMBER_SIZE_ERROR_MESSAGE = "[ERROR] 로또 번호는 " + LOTTO_NUMBER_SIZE + "개여야 합니다.";
-    private static final String NUMBER_RANGE_ERROR_MESSAGE = "[ERROR] 로또 번호는 " + LOTTO_NUMBER_MIN + "~" + LOTTO_NUMBER_MAX + " 사이의 숫자여야 합니다.";
-    private static final String NUMBER_DUPLICATE_ERROR_MESSAGE = "[ERROR] 로또 번호는 " + LOTTO_NUMBER_SIZE + "개의 중복되지 않는 숫자여야 합니다.";
+    private static final String NUMBER_RANGE_ERROR_MESSAGE =
+            "[ERROR] 로또 번호는 " + LOTTO_NUMBER_MIN + "~" + LOTTO_NUMBER_MAX + " 사이의 숫자여야 합니다.";
+    private static final String NUMBER_DUPLICATE_ERROR_MESSAGE =
+            "[ERROR] 로또 번호는 " + LOTTO_NUMBER_SIZE + "개의 중복되지 않는 숫자여야 합니다.";
 
     private final List<Integer> numbers;
 
@@ -26,7 +28,7 @@ public class Lotto {
             throw new IllegalArgumentException(NUMBER_RANGE_ERROR_MESSAGE);
         }
         if (numbers.stream().distinct().count() != LOTTO_NUMBER_SIZE) {
-                throw new IllegalArgumentException(NUMBER_DUPLICATE_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NUMBER_DUPLICATE_ERROR_MESSAGE);
         }
     }
 
@@ -35,7 +37,8 @@ public class Lotto {
     }
 
     public static Lotto fromRandomNumbers() {
-        List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(LOTTO_NUMBER_MIN, LOTTO_NUMBER_MAX, LOTTO_NUMBER_SIZE);
+        List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(LOTTO_NUMBER_MIN, LOTTO_NUMBER_MAX,
+                LOTTO_NUMBER_SIZE);
         return new Lotto(randomNumbers);
     }
 
