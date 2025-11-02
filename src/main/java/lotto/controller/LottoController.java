@@ -6,7 +6,7 @@ import lotto.view.OutputView;
 import lotto.model.LottoTicket;
 import lotto.model.WinningNumber;
 import lotto.model.LottoResult;
-import lotto.model.EarningRate;
+//import lotto.model.EarningRate;
 
 public class LottoController {
     public void run() {
@@ -21,9 +21,9 @@ public class LottoController {
 
         WinningNumber winningNumberObj = new WinningNumber(winningNumbers, bonusNumber);
 
-        LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, winningNumberObj);
-
-        EarningRate earningRate = EarningRate.calculateEarningRate(lottoResult, purchaseNumber);
-        OutputView.printResult(lottoResult, earningRate.getEarningRate());
+//        LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, winningNumberObj);
+//
+//        EarningRate earningRate = EarningRate.calculateEarningRate(lottoResult, purchaseNumber);
+//        OutputView.printResult(lottoResult, earningRate.getEarningRate());
     }
 }

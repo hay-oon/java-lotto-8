@@ -38,4 +38,9 @@ public class Lotto {
         List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         return new Lotto(randomNumbers);
     }
+
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }
