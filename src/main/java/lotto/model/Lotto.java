@@ -15,7 +15,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        this.numbers = numbers;
+        this.numbers = sortNumbersAscending(numbers);
     }
 
     private void validate(List<Integer> numbers) {
@@ -35,10 +35,14 @@ public class Lotto {
     }
 
     public static Lotto fromRandomNumbers() {
-        List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(LOTTO_NUMBER_MIN, LOTTO_NUMBER_MAX, LOTTO_NUMBER_SIZE);
         return new Lotto(randomNumbers);
     }
 
+    private static List<Integer> sortNumbersAscending(List<Integer> numbers) {
+        return numbers.stream().sorted().toList();
+    }
+    
     @Override
     public String toString() {
         return numbers.toString();
