@@ -10,20 +10,20 @@ import lotto.model.LottoResult;
 
 public class LottoController {
     public void run() {
-        Integer purchaseNumber = InputView.readPurchaseAmount();
+        int purchaseNumber = InputView.readPurchaseAmount();
         LottoTicket lottoTicket = LottoTicket.fromPurchaseNumber(purchaseNumber);
 
         OutputView.printPurchaseNumber(purchaseNumber);
         OutputView.printLottoTicket(lottoTicket);
 
         List<Integer> winningNumbers = InputView.readWinningNumber();
-        Integer bonusNumber = InputView.readBonusNumber();
+        int bonusNumber = InputView.readBonusNumber();
 
-        WinningNumber winningNumberObj = new WinningNumber(winningNumbers, bonusNumber);
+        WinningNumber totalWinningNumber = new WinningNumber(winningNumbers, bonusNumber);
 
-//        LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, winningNumberObj);
-//
-//        EarningRate earningRate = EarningRate.calculateEarningRate(lottoResult, purchaseNumber);
-//        OutputView.printResult(lottoResult, earningRate.getEarningRate());
+        LottoResult lottoResult = LottoResult.matchNumber(lottoTicket, totalWinningNumber);
+
+    //    double earningRate = EarningRateCalculator.calculateEarningRate(lottoResult, purchaseNumber);
+    //    OutputView.printResult(lottoResult, earningRate);
     }
 }

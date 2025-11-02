@@ -16,9 +16,9 @@ public class WinningNumber {
     private static final String DUPLICATE_NUMBER_ERROR_MESSAGE = "보너스 번호는 당첨번호와 중복될 수 없습니다.";
 
     private final List<Integer> winningNumbers;
-    private final Integer bonusNumber;
+    private final int bonusNumber;
 
-    public WinningNumber(List<Integer> winningNumbers, Integer bonusNumber) {
+    public WinningNumber(List<Integer> winningNumbers, int bonusNumber) {
         validateWinningNumbers(winningNumbers);
         validateBonusNumber(bonusNumber);
         validDuplicateNumber(winningNumbers, bonusNumber);
@@ -38,13 +38,13 @@ public class WinningNumber {
         }
     }
 
-    private void validateBonusNumber(Integer bonusNumber) {
+    private void validateBonusNumber(int bonusNumber) {
         if (bonusNumber < WINNING_NUMBER_MIN || bonusNumber > WINNING_NUMBER_MAX) {
             throw new IllegalArgumentException(BONUS_NUMBER_RANGE_ERROR_MESSAGE);
         }
     }
 
-    private void validDuplicateNumber(List<Integer> winningNumbers, Integer bonusNumber) {
+    private void validDuplicateNumber(List<Integer> winningNumbers, int bonusNumber) {
         if (winningNumbers.contains(bonusNumber)) {
             throw new IllegalArgumentException(DUPLICATE_NUMBER_ERROR_MESSAGE);
         }
@@ -54,7 +54,7 @@ public class WinningNumber {
         return winningNumbers;
     }
 
-    public Integer getBonusNumber() {
+    public int getBonusNumber() {
         return bonusNumber;
     }
 }
