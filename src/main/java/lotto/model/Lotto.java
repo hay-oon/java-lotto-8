@@ -21,11 +21,8 @@ public class Lotto {
         return numbers;
     }
 
-    public static Lotto generateLotto() {
-        return new Lotto(generateRandomNumbers());
-    }
-
-    private static List<Integer> generateRandomNumbers() {
-        return Randoms.pickUniqueNumbersInRange(1, 45, 6);
+    public static Lotto fromRandomNumbers() {
+        List<Integer> randomNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        return new Lotto(randomNumbers);
     }
 }
