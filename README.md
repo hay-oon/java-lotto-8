@@ -37,14 +37,14 @@
 
 #### 랜덤 로또 번호 생성
 
-- [ ] Lotto 클래스: 6개의 랜덤 로또 번호
-- [ ] generateNumber(): 6개의 랜덤 로또 번호를 생성
+- [x] Lotto 클래스: 6개의 랜덤 로또 번호
+- [x] fromRandomNumbers(): 6개의 랜덤 번호를 통해 Lotto를 생성하는 정적 팩토리 메서드
 
 #### 로또 복권 발행
 
-- [ ] LottoTicket 클래스: 생성된 Lotto를 관리하는 일급 컬렉션
+- [x] LottoTicket 클래스: 생성된 Lotto를 관리하는 일급 컬렉션
   - List<Lotto>, 구매한 로또 개수
-- [ ] generateTicket(): 구매 금액에 따라 Lotto를 생성하는 메서드
+- [x] fromPurchaseNumber(): 구매 금액에 따라 LottoTicket을 생성하는 정적 팩토리 메서드
 
 #### 당첨 결과 계산
 
