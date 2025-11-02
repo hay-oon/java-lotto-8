@@ -40,19 +40,28 @@
 #### 랜덤 로또 번호 생성
 
 - [x] Lotto 클래스: 6개의 랜덤 로또 번호
-- [x] fromRandomNumbers(): 6개의 랜덤 번호를 통해 Lotto를 생성하는 정적 팩토리 메서드
+  - [x] fromRandomNumbers(): 6개의 랜덤 번호를 통해 Lotto를 생성하는 정적 팩토리 메서드
 
 #### 로또 복권 발행
 
 - [x] LottoTicket 클래스: 생성된 Lotto를 관리하는 일급 컬렉션
-  - List<Lotto>, 구매한 로또 개수
-- [x] fromPurchaseNumber(): 구매 금액에 따라 LottoTicket을 생성하는 정적 팩토리 메서드
+  - List<Lotto>, 구매한 로또 개수 저장
+  - [x] fromPurchaseNumber(): 구매 금액에 따라 LottoTicket을 생성하는 정적 팩토리 메서드
 
 #### 당첨 결과 계산
 
 - [x] WinningNumber 클래스: 당첨 번호(input), 보너스 번호(input)를 보관
-- [ ] LottoResult 클래스 : Lotto, WinningNumber를 가지는 클래스
-- [ ] MatchNumber(): 당첨 번호 일치 개수, 보너스 번호 일치 판단 메서드
+- [x] Rank Enum: 당첨 등수 정의
+  - [x] 1등~5등 + 꽝(NONE) 정의 (일치 개수, 상금, 보너스 필요 여부)
+  - [x] from(): 일치 개수와 보너스 여부로 등수 판단하는 정적 팩토리 메서드
+- [x] LottoResult 클래스
+  - [x] 등수별 당첨 개수를 집계하여 저장 (Map<Rank, Integer>)
+  - [x] matchNumber(): LottoTicket, WinningNumber를 통해 당첨 결과 계산하는 정적 팩토리 메서드
+    - 각 로또마다 일치 개수 계산
+    - 보너스 번호 일치 여부 판단
+    - Rank 결정 및 카운트 집계
+  - [x] getRankCount(): 특정 등수의 당첨 개수 반환
+  - [x] getTotalPrize(): 총 당첨 금액 계산
 
 #### 수익률 계산
 
