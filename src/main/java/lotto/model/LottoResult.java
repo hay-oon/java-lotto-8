@@ -54,4 +54,12 @@ public class LottoResult {
         }
         return totalPrize;
     }
+
+    public int getRankCount(Rank rank) {
+        return rankCountMap.get(rank);
+    }
+
+    public Map<Rank, Integer> getRankCountMap() {
+        return rankCountMap;
+    }
 }
