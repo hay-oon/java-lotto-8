@@ -9,8 +9,11 @@ public class WinningNumber {
     private static final String WINNING_NUMBERS_SIZE_ERROR_MESSAGE = "당첨 번호는 " + WINNING_NUMBERS_SIZE + "개여야 합니다.";
     private static final String WINNING_NUMBER_RANGE_ERROR_MESSAGE =
             "당첨 번호는 " + WINNING_NUMBER_MIN + "~" + WINNING_NUMBER_MAX + " 사이의 숫자여야 합니다.";
-    private static final String WINNING_NUMBERS_DUPLICATE_ERROR_MESSAGE = "당첨 번호는 " + WINNING_NUMBERS_SIZE + "개의 중복되지 않는 숫자여야 합니다.";
-    private static final String BONUS_NUMBER_RANGE_ERROR_MESSAGE = "보너스 번호는 " + WINNING_NUMBER_MIN + "~" + WINNING_NUMBER_MAX + " 사이의 숫자여야 합니다.";
+    private static final String WINNING_NUMBERS_DUPLICATE_ERROR_MESSAGE =
+            "당첨 번호는 " + WINNING_NUMBERS_SIZE + "개의 중복되지 않는 숫자여야 합니다.";
+    private static final String BONUS_NUMBER_RANGE_ERROR_MESSAGE =
+            "보너스 번호는 " + WINNING_NUMBER_MIN + "~" + WINNING_NUMBER_MAX + " 사이의 숫자여야 합니다.";
+    private static final String DUPLICATE_NUMBER_ERROR_MESSAGE = "보너스 번호는 당첨번호와 중복될 수 없습니다.";
 
     private final List<Integer> winningNumbers;
     private final Integer bonusNumber;
@@ -18,6 +21,7 @@ public class WinningNumber {
     public WinningNumber(List<Integer> winningNumbers, Integer bonusNumber) {
         validateWinningNumbers(winningNumbers);
         validateBonusNumber(bonusNumber);
+        validDuplicateNumber(winningNumbers, bonusNumber);
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
     }
@@ -40,6 +44,11 @@ public class WinningNumber {
         }
     }
 
+    private void validDuplicateNumber(List<Integer> winningNumbers, Integer bonusNumber) {
+        if (winningNumbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException(DUPLICATE_NUMBER_ERROR_MESSAGE);
+        }
+    }
 
     public List<Integer> getWinningNumbers() {
         return winningNumbers;
