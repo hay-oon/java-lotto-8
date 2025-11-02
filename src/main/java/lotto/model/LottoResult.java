@@ -46,4 +46,12 @@ public class LottoResult {
     private static boolean hasBonusNumber(Lotto lotto, WinningNumber winningNumber) {
         return lotto.getNumbers().contains(winningNumber.getBonusNumber());
     }
+
+    public int getTotalPrize() {
+        int totalPrize = 0;
+        for (Rank rank : Rank.values()) {
+            totalPrize += rank.getPrize() * rankCountMap.get(rank);
+        }
+        return totalPrize;
+    }
 }
