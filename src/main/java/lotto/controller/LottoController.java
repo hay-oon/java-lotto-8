@@ -11,7 +11,7 @@ import lotto.model.EarningRate;
 public class LottoController {
     public void run() {
         Integer purchaseNumber = InputView.readPurchaseAmount();
-        LottoTicket lottoTicket = LottoTicket.generateTicket(purchaseNumber);
+        LottoTicket lottoTicket = LottoTicket.fromPurchaseNumber(purchaseNumber);
 
         OutputView.printPurchaseNumber(purchaseNumber);
         OutputView.printLottoTicket(lottoTicket);
