@@ -20,7 +20,7 @@ class LottoResultTest {
                 new Lotto(List.of(1, 2, 3, 4, 9, 10)), // 4개 일치 - 4등
                 new Lotto(List.of(1, 2, 3, 11, 12, 13)) // 3개 일치 - 5등
         );
-        LottoTicket lottoTicket = new LottoTicket(lottoList, 5);
+        LottoTicket lottoTicket = new LottoTicket(lottoList);
         WinningNumber winningNumber = new WinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
 
         // when
@@ -42,7 +42,7 @@ class LottoResultTest {
                 new Lotto(List.of(1, 2, 3, 11, 12, 13)), // 3개 일치 - 5,000원
                 new Lotto(List.of(1, 2, 3, 4, 9, 10))    // 4개 일치 - 50,000원
         );
-        LottoTicket lottoTicket = new LottoTicket(lottoList, 2);
+        LottoTicket lottoTicket = new LottoTicket(lottoList);
         WinningNumber winningNumber = new WinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
 
         // when

@@ -5,11 +5,9 @@ import java.util.ArrayList;
 
 public class LottoTicket {
     private final List<Lotto> lottoList;
-    private final int purchaseNumber;
 
-    public LottoTicket(List<Lotto> lottoList, int purchaseNumber) {
+    public LottoTicket(List<Lotto> lottoList) {
         this.lottoList = lottoList;
-        this.purchaseNumber = purchaseNumber;
     }
 
     public static LottoTicket fromPurchaseNumber(int purchaseNumber) {
@@ -17,14 +15,14 @@ public class LottoTicket {
         for (int i = 0; i < purchaseNumber; i++) {
             lottoList.add(Lotto.fromRandomNumbers());
         }
-        return new LottoTicket(lottoList, purchaseNumber);
+        return new LottoTicket(lottoList);
     }
 
     public List<Lotto> getLottoList() {
         return lottoList;
     }
 
-    public int getPurchaseNumber() {
-        return purchaseNumber;
+    public int getPurchaseCount() {
+        return lottoList.size();
     }
 }
