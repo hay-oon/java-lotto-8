@@ -45,7 +45,6 @@
 #### 로또 복권 발행
 
 - [x] LottoTicket 클래스: 생성된 Lotto를 관리하는 일급 컬렉션
-  - List<Lotto>, 구매한 로또 개수 저장
   - [x] fromPurchaseNumber(): 구매 금액에 따라 LottoTicket을 생성하는 정적 팩토리 메서드
 
 #### 당첨 결과 계산
